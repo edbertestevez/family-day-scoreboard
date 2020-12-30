@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "fontsource-roboto";
+import AppHeader from "./components/shared/AppHeader";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Registration from "./components/containers/Registration";
+import Participants from "./components/containers/Participants";
+import Scoreboard from "./components/containers/Scoreboard";
+import Games from "./components/containers/Games";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppHeader />
+
+      <Switch>
+        <Route exact path="/">
+          <Registration />
+        </Route>
+        <Route path="/participants">
+          <Participants />
+        </Route>
+        <Route path="/scoreboard">
+          <Scoreboard />
+        </Route>
+        <Route path="/games">
+          <Games />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
