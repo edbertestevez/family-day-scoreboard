@@ -24,6 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:linux": "react-scripts build && npm install serve && pm2 --name sungem-client-dev serve build 7000 --spa",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
